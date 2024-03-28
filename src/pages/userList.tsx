@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from "react";
-import axios from "axios";
 import Header from "../component/header";
 import "./style.css";
 import Sidebar from "./sidebar";
 import Loader from "../component/loader";
+import { useDispatch, useSelector } from "react-redux";
+import { addUserListData } from "../redux/user";
 
 interface IUserData {
   avatar: string;
@@ -13,76 +14,22 @@ interface IUserData {
   last_name: string;
 }
 
-interface SupportData {
-  url: string;
-  text: string;
-}
-
-interface UserData {
-  id: number;
-  email: string;
-  first_name: string;
-  last_name: string;
-  avatar: string;
-}
-
-interface PageData {
-  page: number;
-  per_page: number;
-  total: number;
-  total_pages: number;
-  data: UserData[];
-  support: SupportData;
-}
-
-interface IAPIResponse {
-  data: PageData;
-  status: number;
-  statusText: string;
-  headers: Record<string, string>;
-  config: {
-    transitional: {
-      silentJSONParsing: boolean;
-      forcedJSONParsing: boolean;
-      clarifyTimeoutError: boolean;
-    };
-    adapter: string[];
-    transformRequest: null[];
-    transformResponse: null[];
-    timeout: number;
-    xsrfCookieName: string;
-    xsrfHeaderName: string;
-    maxContentLength: number;
-    maxBodyLength: number;
-    env: Record<string, any>;
-    headers: Record<string, string>;
-    method: string;
-    url: string;
-  };
-  request: Record<string, any>;
-}
-
 const UserList = () => {
   const [users, setUsers] = useState<IUserData[]>([]);
+  const dispatch: any = useDispatch();
+  const resList = useSelector((state: any) => state?.todos?.userList);
+
+  useEffect(() => {
+    dispatch(addUserListData());
+  }, [dispatch]);
+
+  useEffect(() => {
+    setUsers(resList);
+  }, [resList]);
 
   const handleUserClick = (id: number) => {
     window.location.href = `/userdetail/${id}`;
   };
-
-  const fetchUsers = async () => {
-    try {
-      const response: IAPIResponse = await axios.get(
-        "https://reqres.in/api/users?page=2"
-      );
-      setUsers(response.data.data);
-    } catch (error) {
-      console.error("Error fetching users:", error);
-    }
-  };
-
-  useEffect(() => {
-    fetchUsers();
-  }, []);
 
   return (
     <div style={{ display: "flex" }}>
