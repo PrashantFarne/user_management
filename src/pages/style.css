@@ -16,6 +16,7 @@
 
 .custom-sidebar-bg {
   width: 200px;
-  background-color: #f0ede8;
-  border-radius: 40px 0px 0px 40px;
+  background-color: #e7e7e7;
+  border-radius: 40px 40px 40px 40px;
+  border: 2px solid #c1bebe;
 }
