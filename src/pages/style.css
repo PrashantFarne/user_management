@@ -1,0 +1,13 @@
+/* styles.css */
+
+.bg-custom {
+  background-color: #ececfe;
+  padding: 60px;
+  border-radius: 40px;
+}
+
+.custom-width {
+  width: 250px;
+  font-size: 14px;
+  color: #333;
+}
