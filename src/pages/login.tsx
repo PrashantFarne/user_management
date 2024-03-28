@@ -8,8 +8,7 @@ const Login: React.FC = () => {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     try {
-      window.location.href = "";
-      // Redirect to dashboard on successful sign-in
+      window.location.href = "/dashboard";
     } catch (error) {
       console.error(error);
     }
