@@ -1,8 +1,8 @@
 import { combineReducers } from "@reduxjs/toolkit";
-import todosReducer from "./todoSlice";
+import user from "./user";
 
 const rootReducer = combineReducers({
-  todos: todosReducer,
+  todos: user,
 });
 
 export default rootReducer;
