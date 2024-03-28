@@ -1,4 +1,3 @@
-// src/redux/rootReducer.js
 import { combineReducers } from "@reduxjs/toolkit";
 import todosReducer from "./todoSlice";
 
