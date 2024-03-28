@@ -20,3 +20,14 @@
   border-radius: 40px 40px 40px 40px;
   border: 2px solid #c1bebe;
 }
+
+.centered-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 200px;
+  border: 2px solid #c4c4de;
+  border-radius: 20px;
+  padding: 20px;
+  width: 446px;
+  background-color: #f9f9f9;
+}
