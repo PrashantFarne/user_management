@@ -4,7 +4,6 @@ import "./style.css";
 describe("CSS styles", () => {
   test("bg-custom class has correct styles", () => {
     const element = document.createElement("div");
-    console.log(element, "element");
     element.classList.add("bg-custom");
     document.body.appendChild(element);
 

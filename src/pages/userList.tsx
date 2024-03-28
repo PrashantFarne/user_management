@@ -65,12 +65,15 @@ interface IAPIResponse {
 const UserList = () => {
   const [users, setUsers] = useState<IUserData[]>([]);
 
+  const handleUserClick = (id: number) => {
+    window.location.href = `/userdetail/${id}`;
+  };
+
   const fetchUsers = async () => {
     try {
       const response: IAPIResponse = await axios.get(
         "https://reqres.in/api/users?page=2"
       );
-      console.log(response.data.data, "response");
       setUsers(response.data.data);
     } catch (error) {
       console.error("Error fetching users:", error);
@@ -114,7 +117,13 @@ const UserList = () => {
                       </td>
                       <td
                         className="px-6 py-3 custom-width text-center"
-                        style={{ textAlign: "center", verticalAlign: "middle" }}
+                        style={{
+                          textAlign: "center",
+                          verticalAlign: "middle",
+                          cursor: "pointer",
+                          textDecoration: "underline",
+                        }}
+                        onClick={() => handleUserClick(user.id)}
                       >
                         {user.first_name}
                       </td>
