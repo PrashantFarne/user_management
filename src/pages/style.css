@@ -1,7 +1,9 @@
 /* styles.css */
 
 .bg-custom {
-  background-color: #ececfe;
+  border: 2px solid #ede6e6;
+  padding: 60px;
+  border-radius: 40px;
   padding: 60px;
   border-radius: 40px;
 }
@@ -10,4 +12,10 @@
   width: 250px;
   font-size: 14px;
   color: #333;
+}
+
+.custom-sidebar-bg {
+  width: 200px;
+  background-color: #f0ede8;
+  border-radius: 40px 0px 0px 40px;
 }

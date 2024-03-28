@@ -26,7 +26,7 @@ const UserList = () => {
       <Sidebar />
       <div>
         <Header title="User List" />
-        <div className="overflow-x-auto">
+        <div className="overflow-x-auto" style={{ marginLeft: "10px" }}>
           <table className="table-auto w-full bg-custom">
             <thead>
               <tr className="bg-gray-200">
